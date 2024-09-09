@@ -6,7 +6,7 @@ const NewsCard = ({ newsinfo }) => {
   return (
     <div className="w-[22rem] bg-zinc-800 overflow-hidden p-3 rounded-lg">
       <div className="w-full ">
-        <img src={urlToImage} alt="post-img" className="rounded-lg" />
+        <img src={urlToImage} alt="post-img" className="rounded-lg h-52 w-full" />
       </div>
       <div>
         <h1 className="font-semibold py-2 bg-gradient-to-r from-purple-400 to-orange-600 bg-clip-text text-transparent">
