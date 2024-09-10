@@ -3,7 +3,7 @@ import Body from "./components/Body";
 import Header from "./components/Header";
 
 function App() {
-  const [themeName, setThemeName] = useState("Dark");
+  const [themeName, setThemeName] = useState("Light");
 
   return (
     <div>

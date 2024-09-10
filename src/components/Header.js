@@ -5,18 +5,18 @@ const Header = ({themeName, setThemeName}) => {
     // const [themeName, setThemeName] = useState("Dark");
 
   return (
-    <div className={`flex ${themeName === "Dark" ? "bg-black text-white" : "bg-white text-black "}`}>
+    <div className={`flex shadow-sm mb-4 ${themeName === "Dark" ? "bg-black text-white" : "bg-white text-black "}`}>
 
         <div>
 
-        <img className='w-24 px-2 py-2 rounded-2xl h-16 ml-4' src="https://p7.hiclipart.com/preview/982/544/50/news-stock-photography-logo-icon-news-logo.jpg" 
+        <img className='w-20 px-2 py-2 rounded-2xl h-16 ml-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyVGQwL7H2oUIB2Ylixb4EBDKJpEGgT0FL1Q&s" 
         alt="logo" />
 
         </div>
 
         <div>
 
-            <ul className='flex py-4 ml-16 cursor-pointer font-semibold'>
+            <ul className='flex py-4 ml-16 cursor-pointer font-semibold '>
 
                 <li className='px-2 hover:underline'>Home</li>
                 <li className='px-2 hover:underline'>Science & Technology</li>
