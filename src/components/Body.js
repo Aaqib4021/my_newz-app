@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../utils/Constants";
 import NewsContainer from "./NewsContainer";
+import Shimmer from "./Shimmer";
 
-const Body = () => {
+const Body = ({themeName}) => {
   const [fetchedNews, setFetchedNews] = useState([]);
 
   const fetchData = async () => {
@@ -18,12 +19,12 @@ const Body = () => {
     fetchData();
   }, []);
 
-  if (fetchedNews.length === 0) return;
+  // if (fetchedNews.length === 0) return;
 
-  return (
-    <div className="text-white">
-      <h1>Top News</h1>
-      <NewsContainer newsData={fetchedNews.articles} />
+  return fetchedNews.length === 0 ? <Shimmer/> : (
+    <div className={`${themeName === "Dark" ? "bg-black text-white" : "bg-white text-black"} pt-4`}>
+      <h1 className="font-bold ml-6 text-3xl">News around the world 🌎</h1>
+      <NewsContainer newsData={fetchedNews.articles} themeName={themeName} />
     </div>
   );
 };
