@@ -5,7 +5,7 @@ const NewsCard = ({ newsinfo }) => {
   const { name } = newsinfo?.source;
   return (
     <div className="w-[22rem] bg-zinc-800 overflow-hidden p-3 rounded-lg">
-      <div className="w-full ">
+      <div className="w-full">
         <img src={urlToImage} alt="post-img" className="rounded-lg" />
       </div>
       <div>
