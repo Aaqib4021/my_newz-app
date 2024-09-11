@@ -1,7 +1,12 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addText } from "../utils/resultSlice";
+import { Link } from "react-router-dom";
 
 const Header = ({ themeName, setThemeName }) => {
-  // const [themeName, setThemeName] = useState("Dark");
+  const dispatch = useDispatch();
+  const query = useSelector((store) => store.result.text);
+  console.log(query);
 
   return (
     <div
@@ -19,21 +24,56 @@ const Header = ({ themeName, setThemeName }) => {
 
       <div>
         <ul className="flex py-4 ml-16 cursor-pointer font-semibold ">
-          <li className="px-2 hover:underline">Home</li>
-          <li
-            className="px-2 hover:underline"
-            onClick={(e) => {
-              console.log(e.target.textContent);
-            }}
-          >
-            Science & Technology
-          </li>
-          <li className="px-2 hover:underline">International</li>
-          <li className="px-2 hover:underline">Stocks</li>
-          <li className="px-2 hover:underline">Sports</li>
-          <li className="px-2 hover:underline">Business</li>
-          <li className="px-2 hover:underline">Travel</li>
-          <li className="px-2 hover:underline">Innovation</li>
+          <Link to={"/"}>
+            <li
+              className="px-2 hover:underline"
+              onClick={() => {
+                dispatch(addText(""));
+              }}
+            >
+              Home
+            </li>
+          </Link>
+          <Link to={`/${query}`}>
+            <li
+              className="px-2 hover:underline"
+              onClick={(e) => {
+                dispatch(addText(e.target.innerText));
+              }}
+            >
+              Science
+            </li>
+          </Link>
+          <Link to={`/${query}`}>
+            <li
+              className="px-2 hover:underline"
+              onClick={(e) => {
+                dispatch(addText(e.target.innerText));
+              }}
+            >
+              Technology
+            </li>
+          </Link>
+          <Link to={`/${query}`}>
+            <li
+              className="px-2 hover:underline"
+              onClick={(e) => {
+                dispatch(addText(e.target.innerText));
+              }}
+            >
+              International
+            </li>
+          </Link>
+          <Link to={`/${query}`}>
+            <li
+              className="px-2 hover:underline"
+              onClick={(e) => {
+                dispatch(addText(e.target.innerText));
+              }}
+            >
+              Stocks
+            </li>
+          </Link>
         </ul>
       </div>
 
@@ -49,7 +89,7 @@ const Header = ({ themeName, setThemeName }) => {
 
       <div>
         <button
-          className={`mt-4  ml-4 px-6 font-semibold py-1 rounded-lg ${
+          className={`mt-4  ml-4 px-6 py-4 font-semibold text-white rounded-lg ${
             themeName === "Dark"
               ? "bg-white text-black"
               : "bg-black text-white "

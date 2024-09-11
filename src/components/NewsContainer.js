@@ -3,7 +3,6 @@ import NewsCard from "./NewsCard";
 import Shimmer from "./Shimmer";
 
 const NewsContainer = ({ newsData, themeName }) => {
-  console.log(newsData);
   return (
     <div>
       <h1 className="font-bold ml-6 text-3xl mt-4">News around the world 🌎</h1>

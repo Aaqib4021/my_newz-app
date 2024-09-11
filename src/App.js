@@ -8,8 +8,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <div>
-        <Header themeName={themeName} setThemeName={setThemeName} />
-        <Body themeName={themeName} />
+        <Body themeName={themeName} setThemeName={setThemeName} />
       </div>
     </Provider>
   );

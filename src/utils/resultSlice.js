@@ -6,7 +6,7 @@ const resultSlice = createSlice({
     text: "",
   },
   reducers: {
-    addText: (action, state) => {
+    addText: (state, action) => {
       state.text = action.payload;
     },
   },
