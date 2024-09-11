@@ -1,12 +1,14 @@
 import React from "react";
 
 const NewsCard = ({ newsinfo, themeName }) => {
+
   const { content, description, url, urlToImage, publishedAt } = newsinfo;
   const { name } = newsinfo?.source;
 
   return (
+    
       <div
-        className={`w-[22rem] overflow-hidden p-3 rounded-lg  shadow-sm  ${
+        className={`sm:w-[22rem] overflow-hidden p-3 rounded-lg  shadow-sm sm:ml-[18px] w-[15rem] ml-2 ${
           themeName === "Dark" ? "bg-neutral-800 text-white" : "bg-gray-50 text-black"
         }`}
       >

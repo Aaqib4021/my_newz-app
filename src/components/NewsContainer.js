@@ -1,11 +1,12 @@
 import React from "react";
 import NewsCard from "./NewsCard";
-import Shimmer from "./Shimmer";
 
 const NewsContainer = ({ newsData, themeName }) => {
   return (
-    <div>
-      <h1 className="font-bold ml-6 text-3xl mt-4">News around the world 🌎</h1>
+    <div className= {`  ${
+      themeName === "Dark" ? "bg-neutral-950 text-white" : "bg-white text-black "
+    }`}>
+      <h1 className="font-bold ml-6 text-3xl py-8 sm:mt-16 mt-0 sm:w-screen w-[240px]">Latest News around the world 🌎 is here.</h1>
       <div className="p-4 flex flex-wrap gap-12">
         {newsData &&
           newsData.map((news, index) => (

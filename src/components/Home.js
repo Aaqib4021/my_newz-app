@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { API_KEY } from "../utils/Constants";
-import Shimmer from "./Shimmer";
-import NewsContainer from "./NewsContainer";
+import React from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 
-const Home = ({ themeName }) => {
+const Home = ({ themeName, setThemeName }) => {
   return (
     <div className="flex flex-col">
       <div>
-        <Header />
+        <Header themeName={themeName} setThemeName={setThemeName} />
       </div>
       <div>
         <Outlet />
