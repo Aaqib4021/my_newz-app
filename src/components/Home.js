@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { API_KEY } from "../utils/Constants";
 import Shimmer from "./Shimmer";
 import NewsContainer from "./NewsContainer";
 const Home = ({ themeName }) => {
@@ -7,8 +6,7 @@ const Home = ({ themeName }) => {
 
   const fetchData = async () => {
     const jsonData = await fetch(
-      "https://newsapi.org/v2/everything?q=india&from=2024-08-09&sortBy=publishedAt&apiKey=" +
-        API_KEY
+      "https://newsapi.org/v2/everything?q=india&from=2024-08-11&sortBy=publishedAt&apiKey=4c4c22d6f4594e55b6d5a52e232de8e6"
     );
     const data = await jsonData.json();
     setFetchedNews(data);
