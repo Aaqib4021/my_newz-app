@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addText } from "../utils/resultSlice";
 import { Link } from "react-router-dom";
 
 const Header = ({ themeName, setThemeName }) => {
-  
+  const [inputValue, setInputValue] = useState("");
+  console.log(inputValue);
   const dispatch = useDispatch();
   const query = useSelector((store) => store.result.text);
   // console.log(query);
-
+  const handleClick = (value) => {
+    dispatch(addText(value));
+  };
   return (
     <div
       className={`flex flex-col md:flex-row sm:shadow-sm sm:fixed w-screen ${
-        themeName === "Dark" ? "bg-neutral-800 text-white" : "bg-white text-black "
+        themeName === "Dark"
+          ? "bg-neutral-800 text-white"
+          : "bg-white text-black "
       }`}
     >
       <div>
@@ -39,7 +44,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Science
@@ -49,7 +54,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Technology
@@ -59,7 +64,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               International
@@ -69,7 +74,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Stocks
@@ -79,7 +84,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Travel
@@ -89,7 +94,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Entertainment
@@ -99,7 +104,7 @@ const Header = ({ themeName, setThemeName }) => {
             <li
               className="px-2 hover:underline"
               onClick={(e) => {
-                dispatch(addText(e.target.innerText));
+                handleClick(e.target.innerText);
               }}
             >
               Sports
@@ -107,30 +112,48 @@ const Header = ({ themeName, setThemeName }) => {
           </Link>
         </ul>
       </div>
-
-      <input
-        className={`px-4 h-8 sm:mt-6 rounded-full sm:ml-16 outline-none mr-[350px] ml-4 sm:mr-0 ${
-          themeName === "Dark"
-            ? "bg-gray-200 text-black"
-            : "bg-gray-100 text-black "
-        }`}
-        type="text"
-        placeholder="Search"
-      />
-
-      <div>
-        <button
-          className={`sm:mt-6 sm:ml-4 px-6 py-1 font-semibold rounded-lg mt-4 mb-2 ml-6  ${
+      <div className="flex items-center justify-center">
+        <input
+          className={`px-4 h-8 sm:mt-6 rounded-full sm:ml-16 outline-none mr-[350px] ml-4 sm:mr-0 ${
             themeName === "Dark"
-              ? "bg-white text-black"
-              : "bg-black text-white "
+              ? "bg-gray-200 text-black"
+              : "bg-gray-100 text-black "
           }`}
-          onClick={() => {
-            themeName === "Dark" ? setThemeName("Light") : setThemeName("Dark");
+          type="text"
+          placeholder="Search"
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
           }}
-        >
-          {themeName}
-        </button>
+        />
+        <Link to={`/${query}`}>
+          {" "}
+          <button
+            onClick={() => {
+              handleClick(inputValue);
+            }}
+            className="mx-2 mt-5 py-1 px-2 bg-red-500 rounded-lg text-white"
+          >
+            Search
+          </button>
+        </Link>
+
+        <div>
+          <button
+            className={`sm:mt-6 sm:ml-4 px-6 py-1 font-semibold rounded-lg mt-4 mb-2 ml-6  ${
+              themeName === "Dark"
+                ? "bg-white text-black"
+                : "bg-black text-white "
+            }`}
+            onClick={() => {
+              themeName === "Dark"
+                ? setThemeName("Light")
+                : setThemeName("Dark");
+            }}
+          >
+            {themeName}
+          </button>
+        </div>
       </div>
     </div>
   );
